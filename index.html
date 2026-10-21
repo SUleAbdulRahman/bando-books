@@ -134,7 +134,7 @@ footer .wrap{padding-block:32px;border-top:1px solid var(--rule);display:flex;ju
     <svg viewBox="0 0 28 28" aria-hidden="true"><path d="M4 24V9a10 10 0 0 1 20 0v15" fill="none" stroke="var(--laterite)" stroke-width="2.4"/><path d="M14 24V12M9 24h10" stroke="var(--ink)" stroke-width="2" fill="none"/></svg>
     BANDO BOOKS
   </a>
-  <nav><a href="#catalogue">Catalogue</a><a href="#organisations">For organisations</a><a href="#about">About</a><a href="#list">Free template</a></nav>
+  <nav><a href="#catalogue">Catalogue</a><a href="#organisations">For organisations</a><a href="#about">About</a><a href="#list">Launch list</a></nav>
 </div></header>
 
 <main id="top">
@@ -174,9 +174,8 @@ footer .wrap{padding-block:32px;border-top:1px solid var(--rule);display:flex;ju
     </div>
   </div>
   <div class="grid">
-    <article class="item" data-t="book"><span class="type">Book</span><h3>From Effort to Systems</h3><p>Fourteen chapters on turning hard work into management systems that keep an agribusiness profitable. Print and ebook.</p><a class="status" href="https://suleabdulrahman.org/">Pre-orders opening soon · join the launch list</a></article>
+    <article class="item" data-t="book"><span class="type">Book</span><h3>From Effort to Systems</h3><p>Fourteen chapters on turning hard work into management systems that keep an agribusiness profitable. Print and ebook.</p><a class="status" href="#list">Pre-orders opening soon · join the launch list</a></article>
     <article class="item" data-t="template"><span class="type">Template series</span><h3>The Practitioner Workbooks</h3><p>Fourteen fill-in workbooks that pair with the book, one per chapter. Sold singly or as a complete set.</p><span class="status">Coming with the book</span></article>
-    <article class="item" data-t="template"><span class="type">Free template</span><h3>Starter Template</h3><p>A one-page working tool you can download free when you join the Bando Books list.</p><span class="status">Free on sign-up</span></article>
     <article class="item" data-t="manual"><span class="type">Manual</span><h3>Operations manuals</h3><p>Step-by-step manuals for running core business processes, written for managers and supervisors.</p><span class="status">In preparation</span></article>
     <article class="item" data-t="training"><span class="type">Training documents</span><h3>Trainer packs</h3><p>Session guides, handouts and exercises that trainers and programme teams can deliver directly.</p><span class="status">In preparation</span></article>
     <article class="item" data-t="book"><span class="type">Authors</span><h3>Publish with Bando</h3><p>We will open submissions for practitioners with practical knowledge worth putting in print.</p><span class="status">Opening later</span></article>
@@ -205,16 +204,16 @@ footer .wrap{padding-block:32px;border-top:1px solid var(--rule);display:flex;ju
 </div></section>
 
 <section class="list" id="list"><div class="wrap">
-  <div><h2>Get the free starter template</h2><p style="color:var(--ink-2)">Join the list for the template, launch dates and early access to new titles.</p></div>
+  <div><h2>Be the first to know</h2><p style="color:var(--ink-2)">The book is in final preparation. Leave your email and you'll get one message — the day it's available, nothing before that.</p></div>
   <div>
     <form id="signup" action="https://buttondown.com/api/emails/embed-subscribe/abdul_rahman" method="post">
       <label for="email" style="position:absolute;left:-9999px">Email address</label>
       <input id="email" name="email" type="email" required placeholder="you@example.com" autocomplete="email" inputmode="email">
       <input type="hidden" name="tag" value="bando-books">
       <input type="hidden" name="embed" value="1">
-      <button class="btn solid" type="submit">Join the list</button>
+      <button class="btn solid" type="submit">Join the launch list</button>
     </form>
-    <p class="note" role="status" aria-live="polite">You will get a confirmation email. Click the link in it to finish signing up.</p>
+    <p class="note" role="status" aria-live="polite"><strong>You'll get a confirmation email first — click the link in it to finish.</strong> Unsubscribe anytime.</p>
   </div>
 </div></section>
 </main>
@@ -250,7 +249,7 @@ document.querySelectorAll('.chip').forEach(function(c){
         var strong=document.createElement('strong');
         strong.textContent='One more step: check your inbox. ';
         note.appendChild(strong);
-        note.appendChild(document.createTextNode('We sent a confirmation email to '+email+'. Click the link in it to finish — if you do not see it, look in Spam or Promotions.'));
+        note.appendChild(document.createTextNode('We sent a confirmation email to '+email+'. Click the link in it to finish joining — if you don\'t see it, look in Spam or Promotions.'));
       })
       .catch(function(){
         // Network error: fall back to a normal form post so the signup is not lost.
@@ -258,7 +257,7 @@ document.querySelectorAll('.chip').forEach(function(c){
         HTMLFormElement.prototype.submit.call(form);
         note.textContent='Finishing your signup in a new tab — please confirm your email there.';
       })
-      .finally(function(){ button.disabled=false; button.textContent='Join the list'; });
+      .finally(function(){ button.disabled=false; button.textContent='Join the launch list'; });
   });
 })();
 </script>
