@@ -113,6 +113,10 @@ section{padding-block:64px;border-top:1px solid var(--rule)}
 .orgs li b{display:block;font-family:var(--display);font-size:20px;font-weight:600}
 .orgs li span{opacity:.88;font-size:15px}
 .orgs .order{background:var(--on-accent);color:var(--laterite);border-color:var(--on-accent);margin-top:4px}
+.orgs .order-row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.orgs .order-copy{background:transparent;color:var(--on-accent);border-color:var(--on-accent);margin-top:4px}
+.orgs .order-alt{flex-basis:100%;font-size:14px;opacity:.9}
+.orgs .order-alt a{color:inherit}
 .status{text-decoration:none}
 .about .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:48px}
 .about h2{font-size:clamp(28px,4vw,40px)}
@@ -201,7 +205,11 @@ footer .contact{flex-basis:100%}
     <li><b>Bulk copies</b><span>Books for staff, members, trainees and programme participants, with volume pricing.</span></li>
     <li><b>Template licences</b><span>Organisation-wide rights to use and reproduce Bando templates across your teams.</span></li>
     <li><b>Custom manuals</b><span>Manuals and training documents written or adapted for your organisation's own processes.</span></li>
-    <li><a class="btn order" href="mailto:orders@bandobooks.com?subject=Bando%20Books%20%E2%80%94%20organisation%20order">Email us about an order</a></li>
+    <li class="order-row">
+      <a class="btn order" href="mailto:orders@bandobooks.com?subject=Bando%20Books%20%E2%80%94%20organisation%20order">Email us about an order</a>
+      <button type="button" class="btn order-copy" data-copy="orders@bandobooks.com">Copy email address</button>
+      <span class="order-alt">Or write to <strong>orders@bandobooks.com</strong> · <a href="https://mail.google.com/mail/?view=cm&amp;to=orders@bandobooks.com&amp;su=Bando%20Books%20%E2%80%94%20organisation%20order" target="_blank" rel="noopener">open in Gmail</a></span>
+    </li>
   </ul>
 </div></section>
 
@@ -240,6 +248,17 @@ document.querySelectorAll('.chip').forEach(function(c){
     var f=c.dataset.f;
     document.querySelectorAll('.chip').forEach(function(x){x.setAttribute('aria-pressed',String(x===c))});
     document.querySelectorAll('.item').forEach(function(i){i.hidden=!(f==='all'||i.dataset.t===f)});
+  });
+});
+
+// Copy an email address for visitors whose computer has no email app set up.
+document.querySelectorAll('[data-copy]').forEach(function(btn){
+  var label=btn.textContent;
+  btn.addEventListener('click',function(){
+    var v=btn.getAttribute('data-copy');
+    var done=function(){btn.textContent='Copied: '+v;setTimeout(function(){btn.textContent=label;},2500);};
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(v).then(done,function(){window.prompt('Copy this email address:',v);});}
+    else{window.prompt('Copy this email address:',v);}
   });
 });
 
