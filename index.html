@@ -174,6 +174,16 @@ footer .soc:hover,footer .soc:focus-visible{color:var(--laterite)}
 }
 @media (min-width:821px) and (max-width:980px){.grid{grid-template-columns:repeat(2,1fr)}}
 @media (prefers-reduced-motion:no-preference){.btn{transition:filter .15s}.btn:hover{filter:brightness(1.08)}}
+
+.lang-pick{display:inline-flex;align-items:center;gap:6px;font-size:0.85rem;color:inherit;position:relative}
+.lang-pick select{font:inherit;color:inherit;background:transparent;border:1px solid currentColor;border-radius:999px;padding:4px 10px;max-width:9.5rem;cursor:pointer;opacity:.85}
+.lang-pick select:focus-visible{outline:2px solid currentColor;outline-offset:2px}
+.lang-pick .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.goog-te-banner-frame,.skiptranslate>iframe,#goog-gt-tt,.goog-te-balloon-frame{display:none!important}
+body{top:0!important}
+#google_translate_element{display:none}
+
+@media (max-width:640px){.lang-pick{width:34px;height:34px;justify-content:center;border:1px solid currentColor;border-radius:50%;flex:none}.lang-pick select{position:absolute;inset:0;width:100%;max-width:none;opacity:0}}
 </style>
 </head>
 <body>
@@ -184,7 +194,7 @@ footer .soc:hover,footer .soc:focus-visible{color:var(--laterite)}
     <img src="assets/logo/seal.svg" alt="" width="36" height="36">
     BANDO BOOKS
   </a>
-  <nav><a href="#catalogue">Catalogue</a><a href="#workbooks">Workbooks</a><a href="#organisations">For organisations</a><a href="#about">About</a><a href="#list">Launch list</a></nav>
+  <nav><a href="#catalogue">Catalogue</a><a href="#workbooks">Workbooks</a><a href="#organisations">For organisations</a><a href="#about">About</a><a href="#list">Launch list</a><label class="lang-pick notranslate" translate="no"><span class="sr">Language</span><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16"><path fill="none" stroke="currentColor" stroke-width="1.6" d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18Zm-9 9h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3Z"/></svg><select id="lang" aria-label="Language"><option value="en">English</option><option value="sw">Kiswahili</option><option value="ha">Hausa</option><option value="yo">Yorùbá</option><option value="ig">Igbo</option><option value="ak">Twi (Akan)</option><option value="ee">Eʋegbe (Ewe)</option><option value="gaa">Ga</option><option value="am">አማርኛ (Amharic)</option><option value="so">Soomaali</option><option value="om">Afaan Oromoo</option><option value="zu">isiZulu</option><option value="xh">isiXhosa</option><option value="sn">chiShona</option><option value="rw">Kinyarwanda</option><option value="ln">Lingála</option><option value="wo">Wolof</option><option value="af">Afrikaans</option><option value="pt">Português</option><option value="ar">العربية (Arabic)</option><option value="fr">Français</option><option value="de">Deutsch</option><option value="es">Español</option><option value="sv">Svenska</option></select></label></nav>
 </div></header>
 
 <main id="top">
@@ -227,7 +237,7 @@ footer .soc:hover,footer .soc:focus-visible{color:var(--laterite)}
     </div>
   </div>
   <div class="grid">
-    <article class="item" data-t="book"><span class="type">Book</span><h3>From Effort to Systems</h3><p>Fourteen chapters on turning hard work into management systems that keep an agribusiness profitable. Paperback on pre-order; hardcover and ebook coming soon.</p><a class="status" href="https://selar.com/8965926n6g" target="_blank" rel="noopener">Pre-order the paperback</a></article>
+    <article class="item" data-t="book"><span class="type">Book</span><h3 translate="no" class="notranslate">From Effort to Systems</h3><p>Fourteen chapters on turning hard work into management systems that keep an agribusiness profitable. Paperback on pre-order; hardcover and ebook coming soon.</p><a class="status" href="https://selar.com/8965926n6g" target="_blank" rel="noopener">Pre-order the paperback</a></article>
     <article class="item" data-t="template"><span class="type">Template series</span><h3>The Practitioner Workbooks</h3><p>Fourteen fill-in workbooks that pair with the book, one per chapter. Free for book owners; also sold singly, in packs or as a complete set.</p><a class="status" href="#workbooks">See the workbooks</a></article>
     <article class="item" data-t="manual"><span class="type">Manual</span><h3>Operations manuals</h3><p>Step-by-step manuals for running core business processes, written for managers and supervisors.</p><span class="status">In preparation</span></article>
     <article class="item" data-t="training"><span class="type">Training documents</span><h3>Trainer packs</h3><p>Session guides, handouts and exercises that trainers and programme teams can deliver directly.</p><span class="status">In preparation</span></article>
@@ -320,7 +330,7 @@ footer .soc:hover,footer .soc:focus-visible{color:var(--laterite)}
 </main>
 
 <footer><div class="wrap">
-  <span>&copy; 2026 Bando Books · Registered business name, Accra, Ghana · <a href="https://suleabdulrahman.org/">Author site</a></span>
+  <span>&copy; 2026 Bando Books · Registered business name, Accra, Ghana · <a href="https://suleabdulrahman.org/">Author site</a> · Designed by Sule</span>
   <span>Books and Tools for People Who Build.</span>
   <ul class="contact">
     <li><span>Readers and general questions</span><a href="mailto:hello@bandobooks.com">hello@bandobooks.com</a></li>
@@ -378,6 +388,23 @@ document.querySelectorAll('#signup, .bd-form').forEach(function(form){
       .finally(function(){ button.disabled=false; button.textContent=label; });
   });
 });
+</script>
+<div id="google_translate_element"></div>
+<script>
+(function(){
+  var s=document.getElementById('lang'); if(!s) return;
+  var m=document.cookie.match(/(?:^|; )googtrans=\/en\/([^;]+)/);
+  if(m){ s.value=m[1];
+    window.gtInit=function(){ new google.translate.TranslateElement({pageLanguage:'en',includedLanguages:'sw,ha,yo,ig,ak,ee,gaa,am,so,om,zu,xh,sn,rw,ln,wo,af,pt,ar,fr,de,es,sv',autoDisplay:false},'google_translate_element'); };
+    var g=document.createElement('script'); g.src='https://translate.google.com/translate_a/element.js?cb=gtInit'; g.async=true; document.body.appendChild(g);
+  }
+  s.addEventListener('change',function(){
+    var v=s.value, h=location.hostname, val=(v==='en')?'':'/en/'+v;
+    var exp=(v==='en')?'; expires=Thu, 01 Jan 1970 00:00:00 GMT':'; max-age=31536000';
+    ['','; domain='+h,'; domain=.'+h].forEach(function(d){ document.cookie='googtrans='+val+'; path=/'+d+exp; });
+    location.reload();
+  });
+})();
 </script>
 </body>
 </html>
